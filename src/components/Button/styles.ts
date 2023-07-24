@@ -1,6 +1,6 @@
 import tw from '../../customTW';
 
-export const getStyles = ({variant}: any) => {
+export const getStyles = ({ variant }: any) => {
   const getVariant: any = {
     primary: {
       default: '',
@@ -32,5 +32,5 @@ export const getStyles = ({variant}: any) => {
 
   const textColor = getVariant[variant].textColor;
 
-  return {base, textColor};
+  return { base, textColor };
 };

@@ -25,5 +25,5 @@ export const getStyles = ({
     }
   `;
 
-  return {base};
+  return { base };
 };

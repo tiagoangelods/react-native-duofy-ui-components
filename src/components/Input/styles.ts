@@ -1,6 +1,6 @@
 import tw from '../../customTW';
 
-export const getStyles = ({onError, isValid, isActive}: any) => {
+export const getStyles = ({ onError, isValid, isActive }: any) => {
   const inputContainer = tw`
     flex flex-col
   `;
@@ -27,5 +27,5 @@ export const getStyles = ({onError, isValid, isActive}: any) => {
     absolute right-3
   `;
 
-  return {inputContainer, label, caption, container, input, icon};
+  return { inputContainer, label, caption, container, input, icon };
 };

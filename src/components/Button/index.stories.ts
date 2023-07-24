@@ -5,7 +5,7 @@ export default {
   component: Button,
   args: {
     text: 'button primary',
-    onClick: {action: 'clicked'},
+    onClick: { action: 'clicked' },
   },
 };
 

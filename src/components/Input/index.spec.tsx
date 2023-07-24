@@ -2,15 +2,10 @@
  * @format
  */
 import React from 'react';
-import {
-  render,
-  screen,
-  cleanup,
-  fireEvent,
-} from '@testing-library/react-native';
+import { render, screen, cleanup, fireEvent } from '@testing-library/react-native';
 import Input from '.';
 
-import {it, expect, afterEach, jest} from '@jest/globals';
+import { it, expect, afterEach, jest } from '@jest/globals';
 
 const mockedFunction = jest.fn();
 afterEach(cleanup);
@@ -47,7 +42,7 @@ it('Render Input correctly and to render input and have placeholder equal to `te
   const textInput = screen.getByTestId('input-component');
   expect(textInput).toBeDefined();
   expect(textInput.props.children[1].props.children[0].props.placeholder).toBe(
-    'text placeholder',
+    'text placeholder'
   );
 });
 
@@ -55,9 +50,7 @@ it('Render Input correctly and to render input and have value equal to `text val
   render(<Input value="text value" />);
   const textInput = screen.getByTestId('input-component');
   expect(textInput).toBeDefined();
-  expect(textInput.props.children[1].props.children[0].props.value).toBe(
-    'text value',
-  );
+  expect(textInput.props.children[1].props.children[0].props.value).toBe('text value');
 });
 
 it('Render Input correctly and to render input and execute function onFocus, onBlur, onChangeText', async () => {
@@ -68,7 +61,7 @@ it('Render Input correctly and to render input and execute function onFocus, onB
       onFocus={mockedFunction}
       onBlur={mockedFunction}
       onChangeText={mockedFunction}
-    />,
+    />
   );
   const textInput = screen.getByDisplayValue('text value');
   expect(textInput).toBeDefined();

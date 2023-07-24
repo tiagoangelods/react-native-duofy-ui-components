@@ -2,15 +2,10 @@
  * @format
  */
 import React from 'react';
-import {
-  render,
-  screen,
-  cleanup,
-  fireEvent,
-} from '@testing-library/react-native';
+import { render, screen, cleanup, fireEvent } from '@testing-library/react-native';
 import Button from '.';
 
-import {it, expect, beforeEach, afterEach, jest} from '@jest/globals';
+import { it, expect, beforeEach, afterEach, jest } from '@jest/globals';
 
 const onPressMock = jest.fn();
 beforeEach(() => {
