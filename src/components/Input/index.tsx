@@ -1,4 +1,4 @@
-import React, { Ref, useState } from 'react';
+import React, { useState } from 'react';
 import {
   InputModeOptions,
   KeyboardTypeOptions,

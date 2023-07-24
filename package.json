@@ -1,6 +1,6 @@
 {
   "name": "react-native-duofy-ui-components",
-  "version": "1.0.52",
+  "version": "1.0.53",
   "description": "React Native Duofy UI Components",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
@@ -30,7 +30,6 @@
   },
   "keywords": [
     "react-native",
-    "react-native-mask",
     "react-native-duofy-ui-components",
     "react-native-component",
     "ios",

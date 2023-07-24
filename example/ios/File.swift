@@ -1,6 +1,6 @@
 //
 //  File.swift
-//  MaskInputExample
+//  DuofyUIComponentsExample
 //
 
 import Foundation
