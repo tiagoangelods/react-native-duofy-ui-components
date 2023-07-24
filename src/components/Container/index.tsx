@@ -7,9 +7,13 @@ type ViewType = {
 } & ViewProps;
 
 function Container(props: ViewType) {
-  const { children, customTw, ...rest } = props;
+  const { children, testID, customTw, ...rest } = props;
   return (
-    <View {...rest} style={getStyles({ customTw }).base}>
+    <View
+      {...rest}
+      testID={testID || 'container-component'}
+      style={getStyles({ customTw }).base}
+    >
       {children}
     </View>
   );
