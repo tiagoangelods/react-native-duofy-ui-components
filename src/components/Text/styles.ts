@@ -1,7 +1,7 @@
 import tw from '../../customTW';
 
 export const getStyles = ({
-  customClasses,
+  customTw,
   size,
   weight,
   color,
@@ -9,7 +9,6 @@ export const getStyles = ({
   brandColor,
 }: any) => {
   const base = tw`
-    ${customClasses}
     text-${size?.toLowerCase()}
     font-${weight?.toLowerCase()}
     text-${
@@ -23,6 +22,7 @@ export const getStyles = ({
           }`
         : 'brand-black-primary'
     }
+    ${customTw}
   `;
 
   return { base };

@@ -9,7 +9,7 @@ export type TextType = {
   opacity?: string;
   color?: string;
   weight?: string;
-  customClasses?: string;
+  customTw?: string;
   customStyles?: object;
 } & TextProps;
 
@@ -21,14 +21,14 @@ function TextComponent(props: TextType, textRef: any) {
     brandColor,
     opacity,
     color,
-    customClasses = '',
+    customTw = '',
     customStyles = {},
     testID,
     ...rest
   } = props;
 
   const style = getStyles({
-    customClasses,
+    customTw,
     size,
     weight,
     color,

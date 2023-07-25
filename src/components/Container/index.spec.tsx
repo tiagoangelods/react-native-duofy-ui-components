@@ -13,6 +13,6 @@ beforeEach(() => {
 afterEach(cleanup);
 
 it('Render Container correctly', () => {
-  const textInput = screen.getByTestId('container-component');
-  expect(textInput).toBeDefined();
+  const container = screen.getByTestId('container-component');
+  expect(container).toBeDefined();
 });
