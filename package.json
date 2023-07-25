@@ -26,7 +26,7 @@
     "example": "yarn --cwd example",
     "pods": "cd example && pod-install --quiet",
     "bootstrap": "yarn example && yarn && yarn pods",
-    "storybook-generate": "sb-rn-get-stories",
+    "storybook-generate": "sb-rn-get-stories --config-path ./example/.storybook",
     "storybook-watch": "sb-rn-watcher",
     "prepare": "rm -rf lib && pinst --disable && bob build && pinst --enable",
     "postinstall": "husky install"
@@ -52,7 +52,7 @@
     "@react-native-community/bob": "^0.16.2",
     "@react-native-community/eslint-config": "^2.0.0",
     "@release-it/conventional-changelog": "^1.1.4",
-    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-actions": "^7.1.1",
     "@storybook/addon-controls": "^6.5.16",
     "@storybook/addon-essentials": "^7.0.26",
     "@storybook/addon-ondevice-actions": "^6.5.4",

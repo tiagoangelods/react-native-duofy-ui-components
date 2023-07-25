@@ -1,5 +1,5 @@
 {
-  "name": "react-native-duofy-ui-components",
+  "name": "react-native-duofy-ui-components-example",
   "description": "Example app for react-native-duofy-ui-components",
   "version": "0.0.1",
   "private": true,
@@ -7,7 +7,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "storybook-generate": "sb-rn-get-stories",
+    "storybook-generate": "sb-rn-get-stories --config-path .storybook",
     "storybook-watch": "sb-rn-watcher",
     "adb-reverse": "adb reverse tcp:8081 tcp:8081"
   },
@@ -23,7 +23,7 @@
     "@react-native-community/datetimepicker": "^7.4.1",
     "@react-native-community/slider": "^4.4.2",
     "@react-native/metro-config": "^0.72.9",
-    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-actions": "^7.1.1",
     "@storybook/addon-controls": "^6.5.16",
     "@storybook/addon-essentials": "^7.0.26",
     "@storybook/addon-ondevice-actions": "^6.5.4",
