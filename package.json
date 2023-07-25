@@ -31,8 +31,7 @@
     "bootstrap": "yarn && yarn pods",
     "storybook-generate": "sb-rn-get-stories",
     "storybook-watch": "sb-rn-watcher",
-    "prepare": "rm -rf lib && pinst --disable && bob build && pinst --enable",
-    "postinstall": "husky install"
+    "prepare": "rm -rf lib && pinst --disable && bob build && pinst --enable"
   },
   "keywords": [
     "react-native",
