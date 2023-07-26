@@ -61,7 +61,7 @@ module.exports = {
             lighter: 'rgba(229, 229, 229, .6)',
             light: 'rgba(229, 229, 229, .4)',
             lightest: 'rgba(229, 229, 229, .2)',
-          },
+          }
         },
       },
       fontSize: {
