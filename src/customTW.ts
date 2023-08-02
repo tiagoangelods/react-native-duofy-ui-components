@@ -1,6 +1,5 @@
 // lib/tailwind.js
 import { TwConfig, create } from 'twrnc';
-const defaultTheme = require('tailwindcss/defaultTheme');
 let tw = create();
 try {
   tw = create(require('../../../tailwind.config.js'));
@@ -70,7 +69,7 @@ try {
           },
         },
         fontFamily: {
-          sans: ['manrope', ...defaultTheme.fontFamily.sans],
+          sans: ['manrope'],
         },
         fontSize: {
           title1: '4rem',

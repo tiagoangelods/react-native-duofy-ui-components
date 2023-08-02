@@ -1,5 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: [
@@ -66,7 +65,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['manrope', ...defaultTheme.fontFamily.sans],
+        sans: ['manrope'],
       },
       fontSize: {
         title1: '4rem',
