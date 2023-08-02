@@ -30,7 +30,7 @@ export const getStyles = ({ variant, customTw }: any) => {
       default: 'border-0',
       bg: 'bg-white',
       textColor: 'brand-black-primary',
-      shadow: 'shadow-lg',
+      shadow: 'shadow',
     },
   };
 
