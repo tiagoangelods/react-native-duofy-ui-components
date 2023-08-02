@@ -2,7 +2,7 @@
 import { TwConfig, create } from 'twrnc';
 let tw = create();
 try {
-  tw = create(require('../../../../tailwind.config.js'));
+  tw = create(require('../../../tailwind.config.js'));
 } catch {
   tw = create({
     content: [
