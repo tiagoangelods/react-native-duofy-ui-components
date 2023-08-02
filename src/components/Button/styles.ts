@@ -35,7 +35,7 @@ export const getStyles = ({ variant, customTw }: any) => {
   };
 
   const base = tw`
-    flex rounded-lg h-12 justify-center items-center
+    flex rounded-lg h-12 justify-center items-center font-sans
     ${getVariant[variant].default}
     ${getVariant[variant].bg}
     ${getVariant[variant].shadow}

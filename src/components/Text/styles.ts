@@ -9,6 +9,7 @@ export const getStyles = ({
   brandColor,
 }: any) => {
   const base = tw`
+    font-sans
     text-${size?.toLowerCase()}
     font-${weight?.toLowerCase()}
     text-${

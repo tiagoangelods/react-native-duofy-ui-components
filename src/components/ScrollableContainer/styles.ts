@@ -2,7 +2,7 @@ import tw from '../../customTW';
 
 export const getStyles = ({ customTw }: any) => {
   const base = tw`
-    flex
+    font-sans flex
     ${customTw}
   `;
   return { base };
