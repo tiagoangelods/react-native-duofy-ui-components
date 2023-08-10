@@ -59,6 +59,7 @@ const getStories = () => {
     "./src/components/Divider/index.stories.ts": require("../src/components/Divider/index.stories.ts"),
     "./src/components/Input/index.stories.ts": require("../src/components/Input/index.stories.ts"),
     "./src/components/Modal/index.stories.ts": require("../src/components/Modal/index.stories.ts"),
+    "./src/components/ScrollableContainer/index.stories.ts": require("../src/components/ScrollableContainer/index.stories.ts"),
     "./src/components/Switch/index.stories.ts": require("../src/components/Switch/index.stories.ts"),
     "./src/components/Text/index.stories.ts": require("../src/components/Text/index.stories.ts"),
   };

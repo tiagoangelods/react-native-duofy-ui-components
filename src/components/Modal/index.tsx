@@ -7,7 +7,7 @@ import Text from '../Text';
 import Button from '../Button';
 import Divider from '../Divider';
 
-type ModalType = {
+export type ModalType = {
   title: string;
   open: boolean;
   closeFunction: () => void;

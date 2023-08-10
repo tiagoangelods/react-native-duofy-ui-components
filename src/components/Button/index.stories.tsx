@@ -15,10 +15,23 @@ export const Default = {
     text: 'primary',
   },
 };
+export const DefaultLoading = {
+  args: {
+    text: 'primary',
+    loading: true,
+  },
+};
 export const Secondary = {
   args: {
     text: 'button secondary',
     variant: 'secondary',
+  },
+};
+export const SecondaryLoading = {
+  args: {
+    text: 'button secondary',
+    variant: 'secondary',
+    loading: true,
   },
 };
 export const Outline = {
@@ -27,10 +40,24 @@ export const Outline = {
     variant: 'outline',
   },
 };
+export const OutlineLoading = {
+  args: {
+    text: 'button outline',
+    variant: 'outline',
+    loading: true,
+  },
+};
 export const Transparent = {
   args: {
     text: 'button transparent',
     variant: 'transparent',
+  },
+};
+export const TransparentLoading = {
+  args: {
+    text: 'button transparent',
+    variant: 'transparent',
+    loading: true,
   },
 };
 export const Card = {
@@ -39,10 +66,35 @@ export const Card = {
     variant: 'card',
   },
 };
+export const CardLoading = {
+  args: {
+    text: 'card button',
+    variant: 'card',
+    loading: true,
+  },
+};
 export const CardWithDifferentContent = {
   args: {
     variant: 'card',
     customTw: 'flex-col bg-brand-primary h-[120px] w-[320px] p-0',
+    children: (
+      <View>
+        <Image
+          source={{
+            uri: 'https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_272x92dp.png',
+            width: 272,
+            height: 92,
+          }}
+        />
+      </View>
+    ),
+  },
+};
+export const CardWithDifferentContentLoading = {
+  args: {
+    variant: 'card',
+    customTw: 'flex-col bg-brand-primary h-[120px] w-[320px] p-0',
+    loading: true,
     children: (
       <View>
         <Image

@@ -5,7 +5,7 @@ export default {
   component: Modal,
   args: {
     title: 'Modal',
-    open: true,
+    open: false,
   },
   argTypes: {
     closeFunction: { action: 'close' },

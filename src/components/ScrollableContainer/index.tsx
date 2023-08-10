@@ -2,11 +2,11 @@ import React from 'react';
 import { ScrollView, ScrollViewProps } from 'react-native';
 import { getStyles } from './styles';
 
-type ScrollViewType = {
+export type ScrollableContainerType = {
   customTw?: string;
 } & ScrollViewProps;
 
-function ScrollableContainer(props: ScrollViewType) {
+function ScrollableContainer(props: ScrollableContainerType) {
   const { children, testID, customTw, style, ...rest } = props;
   return (
     <ScrollView

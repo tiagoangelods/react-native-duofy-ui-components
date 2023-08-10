@@ -1,20 +1,38 @@
 import React from 'react';
-import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import {
+  TouchableOpacity,
+  TouchableOpacityProps,
+  ActivityIndicator,
+} from 'react-native';
 import Text from '../Text';
 import { getStyles } from './styles';
+import { CommonType } from '..';
 
 export type ButtonType = {
   text?: string;
   variant?: string;
   color?: string;
   customTw?: string;
-} & TouchableOpacityProps;
+} & TouchableOpacityProps &
+  CommonType;
 
 function ButtonComponent(props: ButtonType, buttonRef: any) {
-  const { customTw = '', variant = 'primary', text, testID, children, ...rest } = props;
+  const {
+    customTw = '',
+    variant = 'primary',
+    text,
+    testID,
+    children,
+    loading = false,
+    disabled = false,
+    ...rest
+  } = props;
   const style = getStyles({ variant, customTw });
 
   const renderElement = (): any => {
+    if (loading) {
+      return <ActivityIndicator color={style?.textColor} />;
+    }
     if (children !== null && children !== undefined) {
       return children;
     } else if (
@@ -35,6 +53,7 @@ function ButtonComponent(props: ButtonType, buttonRef: any) {
       ref={buttonRef}
       testID={testID || 'button-component'}
       style={style.base}
+      disabled={disabled || loading}
     >
       {renderElement()}
     </TouchableOpacity>

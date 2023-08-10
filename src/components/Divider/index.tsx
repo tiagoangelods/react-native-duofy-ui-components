@@ -3,13 +3,13 @@ import { View, ViewProps } from 'react-native';
 import Text from '../Text';
 import { getStyles } from './styles';
 
-type ViewType = {
+export type DividerType = {
   text?: string;
   size?: number;
   customTw?: string;
 } & ViewProps;
 
-function Divider(props: ViewType) {
+function Divider(props: DividerType) {
   const { testID, customTw, size = 1, text, ...rest } = props;
   const styles = getStyles({ customTw, size });
 
