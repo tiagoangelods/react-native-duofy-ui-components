@@ -4,9 +4,7 @@ export default {
   title: 'IncrementalInput',
   component: IncrementalInput,
   args: {
-    value: 0,
-    incFunction: () => console.log('inc'),
-    decFunction: () => console.log('dec'),
+    minValue: -3,
   },
 };
 
