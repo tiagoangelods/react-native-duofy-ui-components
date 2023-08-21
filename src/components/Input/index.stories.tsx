@@ -1,4 +1,6 @@
+import React from 'react';
 import Input from '.';
+import { QrCodeIcon } from 'react-native-heroicons/outline';
 
 export default {
   title: 'Input',
@@ -53,6 +55,12 @@ export const TypePassword = {
 export const TypeSearch = {
   args: {
     type: 'search',
+  },
+};
+export const TypeSearchCustomIcon = {
+  args: {
+    type: 'search',
+    customIcon: <QrCodeIcon color="black" />,
   },
 };
 export const TypeEmail = {

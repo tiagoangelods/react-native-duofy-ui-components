@@ -27,6 +27,7 @@ export type InputType = {
   onIconClick?: void;
   pattern?: string | string[] | undefined;
   mask?: string | undefined;
+  customIcon?: JSX.Element;
   moneyProperties?: {
     decimalSeparator: string;
     precision: number;
@@ -37,6 +38,7 @@ function InputComponent(props: InputType, inputRef: any) {
   const {
     type = 'text',
     onError,
+    customIcon,
     onIconClick = () => {},
     onChangeText,
     onFocus,
@@ -53,7 +55,7 @@ function InputComponent(props: InputType, inputRef: any) {
 
   const { inputType, keyboardType } = getKeyboardType(type);
   const isPasswordField = type === 'password';
-  const isSearchField = type === 'search';
+  const isSearchField = type === 'search' || customIcon !== undefined;
   const IconActive = isPasswordField || isSearchField || false;
   const customPattern = pattern || getCustomPattern(inputType);
   const iconClickFunction = isPasswordField
@@ -111,7 +113,10 @@ function InputComponent(props: InputType, inputRef: any) {
             {isPasswordField && visiblePassword && (
               <EyeSlashIcon color="rgba(13, 16, 16, 0.4)" />
             )}
-            {isSearchField && <MagnifyingGlassIcon color="rgba(13, 16, 16, 0.4)" />}
+            {isSearchField && !customIcon && (
+              <MagnifyingGlassIcon color="rgba(13, 16, 16, 0.4)" />
+            )}
+            {isSearchField && customIcon}
           </TouchableOpacity>
         )}
       </View>
