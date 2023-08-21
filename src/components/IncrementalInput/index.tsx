@@ -33,7 +33,7 @@ export default function IncrementalInput(props: IncrementalInputType) {
         onPress={onDecrement}
         disabled={Number(value) === minValue}
       />
-      <TextInput {...rest} keyboardType="number-pad" />
+      <TextInput {...rest} value={value} keyboardType="number-pad" />
       <PlusIcon
         testID="inc-button"
         color={customStyles?.incColor}
