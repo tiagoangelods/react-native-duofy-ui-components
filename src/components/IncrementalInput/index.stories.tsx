@@ -5,6 +5,8 @@ export default {
   component: IncrementalInput,
   args: {
     minValue: -3,
+    onIncrement: () => console.log('increment'),
+    onDecrement: () => console.log('decrement'),
   },
 };
 
