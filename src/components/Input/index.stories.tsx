@@ -73,3 +73,8 @@ export const TypeTel = {
     type: 'tel',
   },
 };
+export const TypeNumber = {
+  args: {
+    type: 'numeric',
+  },
+};

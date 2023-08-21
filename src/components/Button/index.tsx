@@ -25,13 +25,14 @@ function ButtonComponent(props: ButtonType, buttonRef: any) {
     children,
     loading = false,
     disabled = false,
+    style,
     ...rest
   } = props;
-  const style = getStyles({ variant, customTw });
+  const customStyles = getStyles({ variant, customTw });
 
   const renderElement = (): any => {
     if (loading) {
-      return <ActivityIndicator color={style?.textColor} />;
+      return <ActivityIndicator color={customStyles?.textColor} />;
     }
     if (children !== null && children !== undefined) {
       return children;
@@ -41,7 +42,12 @@ function ButtonComponent(props: ButtonType, buttonRef: any) {
       text !== undefined
     ) {
       return (
-        <Text color={style.textColor} weight="medium" size="regular" text={text} />
+        <Text
+          color={customStyles.textColor}
+          weight="medium"
+          size="regular"
+          text={text}
+        />
       );
     }
     return <></>;
@@ -52,7 +58,7 @@ function ButtonComponent(props: ButtonType, buttonRef: any) {
       {...rest}
       ref={buttonRef}
       testID={testID || 'button-component'}
-      style={style.base}
+      style={[customStyles.base, style]}
       disabled={disabled || loading}
     >
       {renderElement()}

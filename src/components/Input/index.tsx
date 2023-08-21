@@ -83,7 +83,7 @@ function InputComponent(props: InputType, inputRef: any) {
     <View testID={testID || 'input-component'} style={style.inputContainer}>
       {label && (
         <Text
-          customStyles={style.label}
+          style={style.label}
           text={label}
           weight="medium"
           size="regular"
@@ -122,7 +122,7 @@ function InputComponent(props: InputType, inputRef: any) {
       </View>
       {caption && (
         <Text
-          customStyles={style.caption}
+          style={style.caption}
           text={caption}
           weight="regular"
           size="small"

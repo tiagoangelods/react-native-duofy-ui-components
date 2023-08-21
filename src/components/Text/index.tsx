@@ -10,7 +10,6 @@ export type TextType = {
   color?: string;
   weight?: string;
   customTw?: string;
-  customStyles?: object;
 } & TextProps;
 
 function TextComponent(props: TextType, textRef: any) {
@@ -22,12 +21,12 @@ function TextComponent(props: TextType, textRef: any) {
     opacity,
     color,
     customTw = '',
-    customStyles = {},
     testID,
+    style,
     ...rest
   } = props;
 
-  const style = getStyles({
+  const customStyles = getStyles({
     customTw,
     size,
     weight,
@@ -41,7 +40,7 @@ function TextComponent(props: TextType, textRef: any) {
       {...rest}
       ref={textRef}
       testID={testID || 'text-component'}
-      style={[style?.base, customStyles]}
+      style={[customStyles?.base, style]}
     >
       {text}
     </Text>

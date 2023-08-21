@@ -17,7 +17,7 @@ function Divider(props: DividerType) {
     return (
       <>
         <View style={styles.divider} />
-        {text && <Text customStyles={styles.dividerText} text={text} />}
+        {text && <Text style={styles.dividerText} text={text} />}
         <View style={styles.divider} />
       </>
     );
