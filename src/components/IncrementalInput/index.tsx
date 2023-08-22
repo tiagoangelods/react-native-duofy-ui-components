@@ -8,8 +8,7 @@ export type IncrementalInputType = {
   minValue?: number;
   maxValue?: number;
   stepValue?: number;
-  onIncrement?: () => void;
-  onDecrement?: () => void;
+  disabled?: boolean;
 } & ContainerType &
   TextInputProps;
 
@@ -19,26 +18,52 @@ export default function IncrementalInput(props: IncrementalInputType) {
     value,
     minValue = Number.MIN_VALUE,
     maxValue = Number.MAX_VALUE,
-    onDecrement,
-    onIncrement,
+    stepValue = 1,
+    disabled = false,
+    onChangeText,
     ...rest
   } = props;
-  const customStyles = getStyles();
+  const customStyles = getStyles({
+    inputDisabled: disabled,
+    minusDisabled: Number(value) === minValue || disabled,
+    plusDisabled: Number(value) === maxValue || disabled,
+  });
+
+  const handleIncrement = () => {
+    if (onChangeText && Number(value) < maxValue)
+      handleChange(Number(value) + stepValue);
+  };
+
+  const handleDecrement = () => {
+    if (onChangeText && Number(value) > minValue)
+      handleChange(Number(value) - stepValue);
+  };
+
+  const handleChange = (customValue: any) => {
+    onChangeText && onChangeText(customValue);
+  };
 
   return (
-    <Container testID="incremental-input" style={[getStyles().container, style]}>
+    <Container testID="incremental-input" style={[customStyles.container, style]}>
       <MinusIcon
         testID="dec-button"
         color={customStyles?.decColor}
-        onPress={onDecrement}
-        disabled={Number(value) === minValue}
+        onPress={handleDecrement}
+        disabled={Number(value) === minValue || disabled}
       />
-      <TextInput {...rest} value={value} keyboardType="number-pad" />
+      <TextInput
+        {...rest}
+        editable={!disabled}
+        keyboardType="number-pad"
+        style={customStyles?.input}
+        value={value?.toString()}
+        onChangeText={handleChange}
+      />
       <PlusIcon
         testID="inc-button"
         color={customStyles?.incColor}
-        disabled={Number(value) === maxValue}
-        onPress={onIncrement}
+        disabled={Number(value) === maxValue || disabled}
+        onPress={handleIncrement}
       />
     </Container>
   );
