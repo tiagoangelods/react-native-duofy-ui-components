@@ -28,7 +28,7 @@ function ButtonComponent(props: ButtonType, buttonRef: any) {
     style,
     ...rest
   } = props;
-  const customStyles = getStyles({ variant, customTw });
+  const customStyles = getStyles({ variant, customTw, disabled });
 
   const renderElement = (): any => {
     if (loading) {

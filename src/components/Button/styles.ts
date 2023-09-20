@@ -1,29 +1,31 @@
 import tw from '../../customTW';
 
-export const getStyles = ({ variant, customTw }: any) => {
+export const getStyles = ({ variant, customTw, disabled }: any) => {
   const getVariant: any = {
     primary: {
       default: '',
-      bg: 'bg-brand-primary',
+      bg: disabled ? 'bg-brand-black-light' : 'bg-brand-primary',
       textColor: 'white',
       shadow: '',
     },
     secondary: {
       default: '',
-      bg: 'bg-brand-secondary',
+      bg: disabled ? 'bg-brand-black-light' : 'bg-brand-secondary',
       textColor: 'white',
       shadow: '',
     },
     outline: {
-      default: 'border-brand-primary border-solid border',
+      default: `${
+        disabled ? 'border-brand-black-lightest' : 'border-brand-primary'
+      } border-solid border`,
       bg: 'bg-transparent',
-      textColor: 'brand-primary ',
+      textColor: disabled ? 'brand-black-light' : 'brand-primary',
       shadow: '',
     },
     transparent: {
       default: 'border-0',
       bg: 'bg-transparent',
-      textColor: 'brand-primary ',
+      textColor: disabled ? 'brand-black-light' : 'brand-primary ',
       shadow: '',
     },
     card: {

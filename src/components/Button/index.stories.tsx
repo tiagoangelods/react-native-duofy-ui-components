@@ -15,6 +15,12 @@ export const Default = {
     text: 'primary',
   },
 };
+export const Disabled = {
+  args: {
+    text: 'primary',
+    disabled: true,
+  },
+};
 export const DefaultLoading = {
   args: {
     text: 'primary',
@@ -25,6 +31,13 @@ export const Secondary = {
   args: {
     text: 'button secondary',
     variant: 'secondary',
+  },
+};
+export const SecondaryDisabled = {
+  args: {
+    text: 'button secondary',
+    variant: 'secondary',
+    disabled: true,
   },
 };
 export const SecondaryLoading = {
@@ -40,6 +53,13 @@ export const Outline = {
     variant: 'outline',
   },
 };
+export const OutlineDisabled = {
+  args: {
+    text: 'button outline',
+    variant: 'outline',
+    disabled: true,
+  },
+};
 export const OutlineLoading = {
   args: {
     text: 'button outline',
@@ -51,6 +71,13 @@ export const Transparent = {
   args: {
     text: 'button transparent',
     variant: 'transparent',
+  },
+};
+export const TransparentDisabled = {
+  args: {
+    text: 'button transparent',
+    variant: 'transparent',
+    disabled: true,
   },
 };
 export const TransparentLoading = {
