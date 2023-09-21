@@ -31,6 +31,10 @@ export function getCustomPattern(inputType: string): string | undefined {
     case 'tel': {
       return '/^[\\+]?[(]?[0-9]{3}[)]?[-\\s\\.]?[0-9]{3}[-\\s\\.]?[0-9]{4,6}$/';
     }
+    case 'decimal':
+    case 'money': {
+      return '^\\d+(\\,\\d{2,3})?$';
+    }
     default: {
       return;
     }

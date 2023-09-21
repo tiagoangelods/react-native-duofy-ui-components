@@ -57,7 +57,7 @@ function InputComponent(props: InputType, inputRef: any) {
   const isPasswordField = type === 'password';
   const isSearchField = type === 'search' || customIcon !== undefined;
   const IconActive = isPasswordField || isSearchField || false;
-  const customPattern = pattern || getCustomPattern(inputType);
+  const customPattern = pattern || getCustomPattern(inputType || type);
   const iconClickFunction = isPasswordField
     ? () => setVisiblePassword(!visiblePassword)
     : onIconClick;
