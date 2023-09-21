@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   InputModeOptions,
   KeyboardTypeOptions,
@@ -28,10 +28,7 @@ export type InputType = {
   pattern?: string | string[] | undefined;
   mask?: string | undefined;
   customIcon?: JSX.Element;
-  moneyProperties?: {
-    decimalSeparator: string;
-    precision: number;
-  };
+  moneySeparator?: boolean;
 } & TextInputProps;
 
 function InputComponent(props: InputType, inputRef: any) {
@@ -43,15 +40,19 @@ function InputComponent(props: InputType, inputRef: any) {
     onChangeText,
     onFocus,
     onBlur,
+    onKeyPress,
     pattern,
     label,
     caption,
     testID,
+    moneySeparator = false,
+    value,
     ...rest
   } = props;
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean>(true);
   const [visiblePassword, setVisiblePassword] = useState<boolean>(false);
+  const [formatedValue, setFormatedValue] = useState<string>('0');
 
   const { inputType, keyboardType } = getKeyboardType(type);
   const isPasswordField = type === 'password';
@@ -64,9 +65,45 @@ function InputComponent(props: InputType, inputRef: any) {
 
   const style = getStyles({ onError, isValid, isActive });
 
-  const handleChange = (value: any) => {
-    setIsValid(handleValidation(value, customPattern));
-    isValid && onChangeText && onChangeText(value);
+  const currency = Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+    signDisplay: 'never',
+    useGrouping: moneySeparator,
+  });
+
+  useEffect(() => {
+    setFormatedValue(currency?.format(value as any));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
+
+  const keypress = (event: any) => {
+    if (type === 'money') {
+      const {
+        nativeEvent: { key },
+      } = event;
+      if (key?.trim()?.length) {
+        const handleValue = value?.toString();
+        if (key?.trim() === 'Backspace') {
+          const newValue = handleValue?.substring(0, handleValue?.length - 1);
+          return handleChange(parseFloat(newValue || '0'));
+        }
+        if (Number(key?.trim()) >= 0 && Number(key?.trim()) <= 9) {
+          const newValue =
+            parseFloat(
+              (parseFloat(handleValue as any) * 100)?.toString() + key?.trim()
+            ) / 100;
+          return handleChange(newValue);
+        }
+      }
+      return event?.preventDefault();
+    }
+    return onKeyPress && onKeyPress(event);
+  };
+
+  const handleChange = (changeValue: any) => {
+    setIsValid(handleValidation(changeValue, customPattern));
+    isValid && onChangeText && onChangeText(changeValue);
   };
 
   const handleFocus = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
@@ -101,9 +138,11 @@ function InputComponent(props: InputType, inputRef: any) {
           keyboardType={keyboardType as KeyboardTypeOptions}
           placeholderTextColor="rgba(13, 16, 16, .6)"
           secureTextEntry={isPasswordField && !visiblePassword}
+          value={type === 'money' ? formatedValue : value}
           onChangeText={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          onKeyPress={keypress}
         />
         {IconActive && (
           <TouchableOpacity style={style.icon} onPress={iconClickFunction}>
