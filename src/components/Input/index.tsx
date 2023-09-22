@@ -67,7 +67,7 @@ function InputComponent(props: InputType, inputRef: any) {
   useEffect(() => {
     if (type === 'money') {
       if (value?.toString()?.trim()?.length && !isNaN(parseFloat(value as any))) {
-        setFormatedValue((value as any)?.toCurrency({}));
+        setFormatedValue(parseFloat(value)?.toCurrency({}));
       } else {
         setFormatedValue('0,00');
       }
@@ -83,7 +83,10 @@ function InputComponent(props: InputType, inputRef: any) {
       if (key?.trim()?.length) {
         const handleValue = value?.toString();
         if (key?.trim() === 'Backspace') {
-          const newValue = handleValue?.substring(0, handleValue?.length - 1);
+          const newValue =
+            handleValue && handleValue?.length > 1
+              ? handleValue?.substring(0, handleValue?.length - 1)
+              : 0;
           return handleChange(parseFloat(newValue || '0'));
         }
         if (Number(key?.trim()) >= 0 && Number(key?.trim()) <= 9) {
