@@ -66,7 +66,10 @@ function InputComponent(props: InputType, inputRef: any) {
 
   useEffect(() => {
     if (type === 'money' && !isNaN(Number(value))) {
-      setFormatedValue(Number(value as string).toCurrency({}));
+      if (value?.toString()?.trim?.length) {
+        return setFormatedValue(Number(value).toCurrency({}));
+      }
+      return setFormatedValue('0');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
