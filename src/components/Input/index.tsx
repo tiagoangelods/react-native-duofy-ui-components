@@ -45,7 +45,6 @@ function InputComponent(props: InputType, inputRef: any) {
     label,
     caption,
     testID,
-    moneySeparator = false,
     value,
     ...rest
   } = props;
@@ -65,15 +64,10 @@ function InputComponent(props: InputType, inputRef: any) {
 
   const style = getStyles({ onError, isValid, isActive });
 
-  const currency = Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-    signDisplay: 'never',
-    useGrouping: moneySeparator,
-  });
-
   useEffect(() => {
-    setFormatedValue(currency?.format(value as any));
+    if (type === 'money' && !isNaN(Number(value))) {
+      setFormatedValue(Number(value as string).toCurrency());
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
 
