@@ -65,11 +65,12 @@ function InputComponent(props: InputType, inputRef: any) {
   const style = getStyles({ onError, isValid, isActive });
 
   useEffect(() => {
-    if (type === 'money' && !isNaN(Number(value))) {
-      if (value?.toString()?.trim?.length) {
-        return setFormatedValue(Number(value).toCurrency({}));
+    if (type === 'money') {
+      if (value?.toString()?.trim?.length && !isNaN(parseFloat(value as any))) {
+        setFormatedValue(parseFloat(value).toCurrency({}));
+      } else {
+        setFormatedValue('0,00');
       }
-      return setFormatedValue('0');
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value]);
