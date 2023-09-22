@@ -1,6 +1,6 @@
 /* eslint-disable no-extend-native */
 interface Number {
-  toCurrency(props?: any): string;
+  toCurrency(props: any): string;
 }
 
 Number.prototype.toCurrency = function (props: any) {
@@ -9,9 +9,10 @@ Number.prototype.toCurrency = function (props: any) {
     currency = 'BRL',
     signDisplay = 'never',
     useGrouping = false,
+    locale = 'pt-BR',
     ...rest
   } = props;
-  const toFormat = Intl.NumberFormat('pt-BR', {
+  const toFormat = Intl.NumberFormat(locale, {
     style,
     currency,
     signDisplay,
