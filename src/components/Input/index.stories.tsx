@@ -45,6 +45,7 @@ export const withCaptionAndLabelOnError = {
 export const TypeMoney = {
   args: {
     type: 'money',
+    value: 55.23,
   },
 };
 export const TypePassword = {

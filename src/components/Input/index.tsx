@@ -66,8 +66,8 @@ function InputComponent(props: InputType, inputRef: any) {
 
   useEffect(() => {
     if (type === 'money') {
-      if (value?.toString()?.trim?.length && !isNaN(parseFloat(value as any))) {
-        setFormatedValue(parseFloat(value).toCurrency({}));
+      if (value?.toString()?.trim()?.length && !isNaN(parseFloat(value as any))) {
+        setFormatedValue((value as any)?.toCurrency({}));
       } else {
         setFormatedValue('0,00');
       }

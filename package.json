@@ -1,6 +1,6 @@
 {
   "name": "react-native-duofy-ui-components",
-  "version": "1.0.70",
+  "version": "1.0.71",
   "description": "React Native Duofy UI Components",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
