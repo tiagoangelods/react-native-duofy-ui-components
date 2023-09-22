@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   InputModeOptions,
   KeyboardTypeOptions,
@@ -44,11 +44,14 @@ function InputComponent(props: InputType, inputRef: any) {
     label,
     caption,
     testID,
+    value,
+    onKeyPress,
     ...rest
   } = props;
   const [isActive, setIsActive] = useState<boolean>(false);
   const [isValid, setIsValid] = useState<boolean>(true);
   const [visiblePassword, setVisiblePassword] = useState<boolean>(false);
+  const [formatedValue, setFormatedValue] = useState<string>('');
 
   const { inputType, keyboardType } = getKeyboardType(type);
   const isPasswordField = type === 'password';
@@ -60,6 +63,17 @@ function InputComponent(props: InputType, inputRef: any) {
     : onIconClick;
 
   const style = getStyles({ onError, isValid, isActive });
+
+  useEffect(() => {
+    if (value && type === 'money') {
+      setFormatedValue(
+        parseFloat(value).toCurrency({
+          useGrouping: false,
+        })
+      );
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [value]);
 
   const handleChange = (changeValue: any) => {
     setIsValid(handleValidation(changeValue, customPattern));
@@ -74,6 +88,31 @@ function InputComponent(props: InputType, inputRef: any) {
   const handleBlur = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
     setIsActive(false);
     onBlur && onBlur(e);
+  };
+
+  const keypress = (event: any) => {
+    if (type === 'money' && value) {
+      const {
+        nativeEvent: { key },
+      } = event;
+      if (key?.trim()?.length) {
+        const handleValue = value?.toString();
+        if (key?.trim() === 'Backspace') {
+          const newValue = handleValue?.substring(0, handleValue?.length - 1);
+          return handleChange(parseFloat(newValue || '0'));
+        }
+        if (Number(key?.trim()) >= 0 && Number(key?.trim()) <= 9) {
+          const newValue =
+            parseInt(
+              handleValue?.replace('.', '')?.replace(',', '') + key?.trim(),
+              10
+            ) / 100;
+          return handleChange(newValue);
+        }
+      }
+      return event?.preventDefault();
+    }
+    return onKeyPress && onKeyPress(event);
   };
 
   return (
@@ -101,6 +140,8 @@ function InputComponent(props: InputType, inputRef: any) {
           onChangeText={handleChange}
           onFocus={handleFocus}
           onBlur={handleBlur}
+          value={type === 'money' ? formatedValue : value}
+          onKeyPress={keypress}
         />
         {IconActive && (
           <TouchableOpacity style={style.icon} onPress={iconClickFunction}>
