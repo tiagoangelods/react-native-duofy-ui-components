@@ -14,6 +14,13 @@ export const WithPlaceholder = {
     placeholder: 'Whith placeholder',
   },
 };
+export const newVariante = {
+  args: {
+    onError: false,
+    placeholder: 'Variante line',
+    styleInput: { borderColor: 'none' },
+  },
+};
 export const onError = {
   args: {
     onError: true,

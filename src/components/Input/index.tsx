@@ -29,6 +29,9 @@ export type InputType = {
   mask?: string | undefined;
   customIcon?: JSX.Element;
   moneySeparator?: boolean;
+  styleLabel?: any;
+  styleInput?: any;
+  styleContainer?: any;
 } & TextInputProps;
 
 function InputComponent(props: InputType, inputRef: any) {
@@ -44,6 +47,9 @@ function InputComponent(props: InputType, inputRef: any) {
     label,
     caption,
     testID,
+    styleLabel = {},
+    styleInput = {},
+    styleContainer = {},
     ...rest
   } = props;
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -80,7 +86,7 @@ function InputComponent(props: InputType, inputRef: any) {
     <View testID={testID || 'input-component'} style={style.inputContainer}>
       {label && (
         <Text
-          style={style.label}
+          style={[style.label, styleLabel]}
           text={label}
           weight="medium"
           size="regular"
@@ -88,12 +94,12 @@ function InputComponent(props: InputType, inputRef: any) {
           opacity="primary"
         />
       )}
-      <View style={style.container}>
+      <View style={[style.container, styleContainer]}>
         <TextInput
           {...rest}
           ref={inputRef}
           autoCapitalize="none"
-          style={style.input}
+          style={[style.input, styleInput]}
           inputMode={inputType as InputModeOptions}
           keyboardType={keyboardType as KeyboardTypeOptions}
           placeholderTextColor="rgba(13, 16, 16, .6)"
