@@ -43,7 +43,16 @@
   },
   "homepage": "https://github.com/tiagoangelods/react-native-duofy-ui-components#readme",
   "devDependencies": {
-    "@babel/core": "^7.22.9",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.3",
+    "@babel/runtime": "^7.25.0",
+    "@react-native-community/cli": "15.0.1",
+    "@react-native-community/cli-platform-android": "15.0.1",
+    "@react-native-community/cli-platform-ios": "15.0.1",
+    "@react-native/babel-preset": "0.76.6",
+    "@react-native/eslint-config": "0.76.6",
+    "@react-native/metro-config": "0.76.6",
+    "@react-native/typescript-config": "0.76.6",
     "@commitlint/config-conventional": "^19.4.1",
     "@heroicons/react": "^2.0.18",
     "@jest/globals": "^29.6.1",
@@ -80,10 +89,6 @@
     "release-it": "^17.6.0",
     "tailwindcss": "^3.3.3",
     "twrnc": "^3.6.3",
-    "@react-native/babel-preset": "0.75.2",
-    "@react-native/eslint-config": "0.75.2",
-    "@react-native/metro-config": "0.75.2",
-    "@react-native/typescript-config": "0.75.2",
     "@types/react": "^18.2.6",
     "@types/react-test-renderer": "^18.0.0",
     "babel-jest": "^29.6.3",
@@ -151,14 +156,13 @@
   },
   "peerDependencies": {
     "nativewind": "^4.0.1",
-    "react": "^18.3.1",
-    "react-native": "^0.75.2",
+    "react": "18.3.1",
+    "react-native": "0.76.6",
     "react-native-heroicons": "^4.0.0",
     "tailwindcss": "^3.4.10",
     "twrnc": "^4.5.1"
   },
   "engines": {
     "node": ">=18"
-  },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  }
 }
